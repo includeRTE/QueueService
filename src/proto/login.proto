@@ -1,0 +1,11 @@
+package login
+
+message LoginRequest {
+    string username = 0;
+    string password = 1;
+}
+
+message LoginQueueInfo {
+    int QueueSize = 1;
+    int SelfPotision = 2;
+}
