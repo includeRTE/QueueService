@@ -35,7 +35,8 @@ func (conn *TcpConn) ParsePacket() {
 
 	dataSize := conn.GetReadBufDataSize()
 	if dataSize >= packHeadSize {
-
+		buf, _ := conn.readbuf.ReadNoRetry(packHeadSize)
+		if err != ni
 	}
 }
 

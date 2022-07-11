@@ -75,6 +75,21 @@ func (buf *RingBuf) ReadAll() ([]byte, error) {
 	return buf.Read(dataSize)
 }
 
+func (buf *RingBuf) ReadNoRetry(nSize int) ([]byte, error) {
+	dataSize := buf.DataSize()
+
+	readSize := 0
+	if dataSize >= nSize {
+		readSize = nSize
+	} else {
+		readSize = dataSize
+	}
+
+	temBuf := make([]byte, readSize, readSize)
+	copy(temBuf[0:readSize], buf.buf[buf.readIndex:buf.readIndex+readSize])
+	return temBuf, nil
+}
+
 func (buf *RingBuf) DataSize() int {
 	return buf.writeIndex - buf.readIndex
 }
