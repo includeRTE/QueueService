@@ -1,4 +1,5 @@
 syntax = "proto3";
+option go_package = "./common;login";
 package common;
 
 
@@ -6,4 +7,9 @@ enum PROTO_MESSAGE_ID {
     MT_UNUSED = 0;
     MT_LOGIN_REQ = 1;
     MT_LOGIN_RET = 2;
+}
+
+message Packet {
+    int32 MsgId = 1;
+    string ProtoPacket = 2;
 }
