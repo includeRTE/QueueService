@@ -67,7 +67,7 @@ func (conn *TcpConn) ParsePacket() {
 		packet := pbcommon.Packet{}
 
 		packet.MsgId = packetID
-		packet.
+		packet.ProtoPacket = 
 
 	}
 }
